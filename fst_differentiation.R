@@ -41,11 +41,13 @@ analyze_fst <- function(file_path, comparison_name) {
   return(final_stats)
 }
 
-pop1_pop2_fst <- analyze_fst("pop1_pop2_fst.weir.fst.gz", "pop1_pop2")
-pop1_pop3_fst <- analyze_fst("pop1_pop3_fst.weir.fst.gz", "pop1_pop3")
-pop2_pop3_fst <- analyze_fst("pop2_pop3_fst.weir.fst.gz", "pop2_pop3")
+wild_ucla_fst <- analyze_fst("wild_ucla_fst.weir.fst.gz", "wild_vs_ucla")
+wild_ucsb_fst <- analyze_fst("wild_ucsb_fst.weir.fst.gz", "wild_vs_ucsb")
+wild_occ_fst <- analyze_fst("wild_occ_fst.weir.fst.gz", "wild_vs_occ")
+wild_ucsd_fst <- analyze_fst("wild_ucsd_fst.weir.fst.gz", "wild_vs_ucsd")
+wild_sfsu_fst <- analyze_fst("wild_sfsu_fst.weir.fst.gz", "wild_vs_sfsu")
 
-fst_results <- bind_rows(pop1_pop2_fst, pop1_pop3_fst, pop2_pop3_fst)
+fst_results <- bind_rows(wild_ucla_fst, wild_ucsb_fst, wild_occ_fst, wild_ucsd_fst, wild_sfsu_fst)
 
 write_csv(fst_results, "fst_results.csv")
 
